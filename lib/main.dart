@@ -9,30 +9,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        color: Colors.white,
-        alignment: Alignment.center,
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            border: Border.all(
-              color: Colors.red,
-              width: 11,
+      home: Column(
+        children: [
+          ColorfullContainer(
+            cor: Colors.blue
             ),
-            borderRadius: BorderRadius.circular(60),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.yellow,
-                offset: Offset(20, 20),
-                spreadRadius: 10,
-                blurRadius: 20
-              ),
-            ]
-          ),
-        ),
+          ColorfullContainer(
+            cor: Colors.red
+            ),
+          ColorfullContainer(
+            cor: Colors.yellow
+            ),
+        ],
       ),
     );
   }
 }
+
+class ColorfullContainer extends StatelessWidget {
+  final Color cor;
+
+  ColorfullContainer({Key key, this.cor}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 150,
+      color: cor,    
+    );
+  }
+} 
